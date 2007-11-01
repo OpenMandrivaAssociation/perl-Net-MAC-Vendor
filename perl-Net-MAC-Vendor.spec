@@ -2,7 +2,7 @@
 
 Summary:	Look up the vendor for a MAC
 Name:		perl-%{module}
-Version:	1.17
+Version:	1.18
 Release:	%mkrel 1
 License:	GPL or Artistic
 Group:		Development/Perl
