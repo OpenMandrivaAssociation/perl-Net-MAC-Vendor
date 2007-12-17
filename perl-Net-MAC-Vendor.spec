@@ -10,7 +10,6 @@ URL:		http://search.cpan.org/dist/%{module}
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{module}-%{version}.tar.gz
 BuildRequires:	perl-devel
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The Institute of Electrical and Electronics Engineers (IEEE) assigns an
