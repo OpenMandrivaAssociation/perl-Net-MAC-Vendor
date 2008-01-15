@@ -3,7 +3,7 @@
 Summary:	Look up the vendor for a MAC
 Name:		perl-%{module}
 Version:	1.18
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL or Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{module}
