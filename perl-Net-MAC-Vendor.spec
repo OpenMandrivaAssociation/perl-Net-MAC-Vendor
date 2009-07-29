@@ -1,16 +1,18 @@
-%define module Net-MAC-Vendor
+%define upstream_name    Net-MAC-Vendor
+%define upstream_version 1.18
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Look up the vendor for a MAC
-Name:		perl-%{module}
-Version:	1.18
-Release:	%mkrel 6
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{module}-%{version}.tar.gz
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The Institute of Electrical and Electronics Engineers (IEEE) assigns an
@@ -34,12 +36,10 @@ directory for a file named mac_oui.db to find the cache. I need to come up with
 a way to let the user set that location.
 
 %prep
-
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-
 %make OPTIMIZE="%{optflags}" CFLAGS="%{optflags}"
 
 # make test dies...
@@ -47,7 +47,6 @@ a way to let the user set that location.
 
 %install
 rm -rf %{buildroot}
-
 %makeinstall_std
 
 %clean 
@@ -58,5 +57,3 @@ rm -rf %{buildroot}
 %doc Changes LICENSE README
 %{perl_vendorlib}/*
 %{_mandir}/*/*
-
-
