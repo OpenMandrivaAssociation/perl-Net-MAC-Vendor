@@ -1,9 +1,9 @@
 %define upstream_name    Net-MAC-Vendor
 %define upstream_version 1.18
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
 Summary:	Look up the vendor for a MAC
 License:	GPL+ or Artistic
@@ -11,8 +11,8 @@ Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 
+BuildRequires:	perl-devel
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The Institute of Electrical and Electronics Engineers (IEEE) assigns an
@@ -39,21 +39,59 @@ a way to let the user set that location.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make OPTIMIZE="%{optflags}" CFLAGS="%{optflags}"
 
 # make test dies...
 # make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean 
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc Changes LICENSE README
 %{perl_vendorlib}/*
 %{_mandir}/*/*
+
+
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 1.180.0-2mdv2011.0
++ Revision: 655141
+- rebuild for updated spec-helper
+
+* Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 1.180.0-1mdv2011.0
++ Revision: 404096
+- rebuild using %%perl_convert_version
+
+* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 1.18-6mdv2009.0
++ Revision: 258055
+- rebuild
+
+* Thu Jul 24 2008 Thierry Vignaud <tv@mandriva.org> 1.18-5mdv2009.0
++ Revision: 246157
+- rebuild
+
+* Tue Jan 15 2008 Thierry Vignaud <tv@mandriva.org> 1.18-3mdv2008.1
++ Revision: 152222
+- rebuild
+
+* Tue Jan 15 2008 Thierry Vignaud <tv@mandriva.org> 1.18-2mdv2008.1
++ Revision: 152221
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Thu Nov 01 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.18-1mdv2008.1
++ Revision: 104563
+- update to new version 1.18
+
+
+* Tue Mar 13 2007 Oden Eriksson <oeriksson@mandriva.com> 1.17-1mdv2007.1
++ Revision: 143145
+- Import perl-Net-MAC-Vendor
+
+* Tue Mar 13 2007 Oden Eriksson <oeriksson@mandriva.com> 1.17-1mdv2007.1
+- initial Mandriva package
+
