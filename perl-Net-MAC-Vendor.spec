@@ -1,15 +1,15 @@
 %define upstream_name    Net-MAC-Vendor
-%define upstream_version 1.18
+%define upstream_version 1.1901
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%perl_convert_version 1.1901
+Release:	1
 
 Summary:	Look up the vendor for a MAC
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/Net/Net-MAC-Vendor-1.1901.tar.gz
 
 BuildRequires:	perl-devel
 BuildArch:	noarch
@@ -94,4 +94,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Tue Mar 13 2007 Oden Eriksson <oeriksson@mandriva.com> 1.17-1mdv2007.1
 - initial Mandriva package
+
 
