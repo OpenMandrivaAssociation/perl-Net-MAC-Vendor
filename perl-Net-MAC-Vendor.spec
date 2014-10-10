@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version 1.1901
-Release:	1
+Release:	2
 
 Summary:	Look up the vendor for a MAC
 License:	GPL+ or Artistic
