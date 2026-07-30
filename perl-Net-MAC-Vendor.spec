@@ -2,7 +2,7 @@
 %define upstream_version 1.268
 Name:		perl-%{upstream_name}
 Version:	1.268
-Release:	1
+Release:	2
 
 Summary:	Look up the vendor for a MAC
 License:	GPL+ or Artistic
@@ -36,7 +36,7 @@ directory for a file named mac_oui.db to find the cache. I need to come up with
 a way to let the user set that location.
 
 %prep
-%setup -q -n %{upstream_name}-%{version}
+%setup -q -n Net-MAC-Vendor-1.268
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
